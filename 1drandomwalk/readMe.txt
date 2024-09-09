@@ -1,0 +1,1 @@
+This program runs a 1d random walk for 10 steps x number of times (set by the numValues variable) and returns the proportion of each position the walk ends up in.
