@@ -1,0 +1,25 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+n_steps = 1000
+n_walks = 10000 
+target_value = 102
+step_size = 0.05
+hit_count = 0
+
+for i in range(n_walks):
+    steps = np.random.choice([-step_size, step_size], size=n_steps)
+    position = np.cumsum(steps) + 100
+
+    if np.any(np.abs(position - target_value) < 0.001):
+        hit_count += 1
+
+    plt.plot(position, alpha=0.1, color='blue')
+
+probability = hit_count / n_walks * 100  
+
+print(f"The random walks hit the value {target_value} in {hit_count} out of {n_walks} iterations")
+print(f"Probability of hitting the value {target_value}: {probability:.2f}%")
+
+plt.grid(True)
+plt.show()
